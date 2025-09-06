@@ -2,8 +2,6 @@
 import { useState } from 'react'
 
 export default function ComingSoon() {
-  const [email, setEmail] = useState('')
-
 
   return (
     <div className="page-wrapper">
