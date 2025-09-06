@@ -14,9 +14,8 @@ export default function ComingSoon() {
         <div className="container">
           <div className="hero-section">
             <h2 className="hero-title">Coming Soon</h2>
-            <p className="hero-tagline">Spirituality, Sound Healing & Manifestation</p>
+            <p className="hero-tagline">Spirituality, Sound Healing &amp; Manifestation</p>
             
-
           </div>
         </div>
       </main>
