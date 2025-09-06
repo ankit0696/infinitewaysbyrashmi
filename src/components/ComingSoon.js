@@ -6,7 +6,7 @@ export default function ComingSoon() {
     <div className="page-wrapper">
       <header className="header">
         <div className="container">
-          <h1 className="brand-name">✨ Infinite Ways By Rashmi</h1>
+          <h1 className="brand-name">Infinite Ways By Rashmi</h1>
         </div>
       </header>
 
