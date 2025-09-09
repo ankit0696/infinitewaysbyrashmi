@@ -18,7 +18,7 @@ export default function AboutPreview() {
             </div>
 
             <p className="body-text mb-6">
-              I've been blessed to travel through two distinct journeys: my academic path that honed my analytical skills, 
+              I&apos;ve been blessed to travel through two distinct journeys: my academic path that honed my analytical skills, 
               and my spiritual journey that awakened my healing abilities. This unique combination allows me to bridge 
               science and spirituality in my healing practice.
             </p>

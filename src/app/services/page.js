@@ -135,7 +135,7 @@ export default function Services() {
             <h2 className="heading-2 mb-6">How Sessions Work</h2>
             <p className="body-large">
               Each session is tailored to your unique needs and energetic signature. 
-              Here's what you can expect from our healing journey together.
+              Here&apos;s what you can expect from our healing journey together.
             </p>
           </div>
 

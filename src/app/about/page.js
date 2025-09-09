@@ -3,14 +3,14 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'About Dr. Rashmi - My Journey | Infinite Ways',
-  description: 'Learn about Dr. Rashmi Bohra\'s unique journey from PhD in Computer Science to Energy Transformational Coach and Transpersonal Counsellor.',
+  description: 'Learn about Dr. Rashmi Bohra&apos;s unique journey from PhD in Computer Science to Energy Transformational Coach and Transpersonal Counsellor.',
 }
 
 export default function About() {
   return (
     <main className="min-h-screen">
       <Navigation />
-
+      
       {/* Hero Section */}
       <section className="section-padding gradient-bg">
         <div className="container">
@@ -29,7 +29,7 @@ export default function About() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="heading-2 text-center mb-12">Two Parallel Journeys</h2>
-
+            
             <div className="grid lg:grid-cols-2 gap-12 mb-16">
               {/* Academic Journey */}
               <div className="card p-8">
@@ -48,7 +48,7 @@ export default function About() {
                   Even a decade later, my students remain in touch with me.
                 </p>
                 <p className="body-text">
-                  I completed "Training the Trainer" by Italian trainer Alto Camarazzi, which has been invaluable in my client sessions.
+                  I completed &quot;Training the Trainer&quot; by Italian trainer Alto Camarazzi, which has been invaluable in my client sessions.
                 </p>
               </div>
 
@@ -66,11 +66,11 @@ export default function About() {
                 </p>
                 <p className="body-text mb-4">
                   After losing my father at age 3, I could still feel his presence. Years later, through studying spirituality 
-                  and meeting others with similar experiences, I understood this was a gift—not imagination.
+                  and meeting others with similar experiences, I understood this was a gift&mdash;not imagination.
                 </p>
                 <p className="body-text">
-                  Through dedicated meditation practices, I developed clairvoyance—my "third eye"—which helps me understand 
-                  my clients' individuality and inner workings.
+                  Through dedicated meditation practices, I developed clairvoyance&mdash;my &quot;third eye&quot;&mdash;which helps me understand 
+                  my clients&apos; individuality and inner workings.
                 </p>
               </div>
             </div>
@@ -83,13 +83,13 @@ export default function About() {
                   <h4 className="text-xl font-semibold text-gray-900 mb-3">Quantum Physics Approach</h4>
                   <p className="body-text">
                     I believe in healing people by following modalities based on the rules of quantum physics. 
-                    Energy healing asks us to get out of the traps of mind—logic and reasoning.
+                    Energy healing asks us to get out of the traps of mind&mdash;logic and reasoning.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-3">Client-Centered Approach</h4>
                   <p className="body-text">
-                    I focus my counselling style on each client's personal needs and individual capacity, 
+                    I focus my counselling style on each client&apos;s personal needs and individual capacity, 
                     bringing my well-defined set of values, tools, and perspectives to every session.
                   </p>
                 </div>
@@ -100,7 +100,7 @@ export default function About() {
             <div className="text-center">
               <h3 className="heading-3 mb-6">Looking Forward</h3>
               <p className="body-large mb-8">
-                I'm venturing into podcasting to reach women who feel helpless and powerless, 
+                I&apos;m venturing into podcasting to reach women who feel helpless and powerless, 
                 helping them realize their true potential and inner power. My natural empathy, 
                 vision for a better world, and vast knowledge repertoire will guide this mission.
               </p>

@@ -153,7 +153,7 @@ export default function ContactForm() {
       </button>
 
       <p className="text-sm text-gray-600 text-center">
-        * Required fields. I'll respond within 24 hours.
+        * Required fields. I&apos;ll respond within 24 hours.
       </p>
     </form>
   )

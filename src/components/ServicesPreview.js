@@ -73,7 +73,7 @@ export default function ServicesPreview() {
         <div className="text-center">
           <p className="body-text text-gray-600 mb-8 max-w-2xl mx-auto">
             Each session is personalized to your unique needs and energetic signature. 
-            Let's work together to unlock your infinite potential.
+            Let&apos;s work together to unlock your infinite potential.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/services" className="btn btn-primary">
