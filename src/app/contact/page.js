@@ -344,7 +344,7 @@ export default function ContactPage() {
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   Yes! Quantum healing transcends physical space. Many clients report profound shifts 
-                  from distance sessions. Dr. Rashmi's clairvoyant abilities allow her to connect 
+                  from distance sessions. Dr. Rashmi&apos;s clairvoyant abilities allow her to connect 
                   energetically regardless of location.
                 </p>
               </div>

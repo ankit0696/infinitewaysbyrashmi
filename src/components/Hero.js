@@ -206,9 +206,9 @@ export default function Hero() {
                 ))}
               </div>
               <blockquote className="text-gray-700 leading-relaxed mb-6 text-lg">
-                "Dr. Rashmi's sound healing sessions completely transformed my chronic anxiety. 
+                {`"Dr. Rashmi's sound healing sessions completely transformed my chronic anxiety. 
                 The combination of her scientific background and intuitive gifts creates a uniquely 
-                powerful healing experience."
+                powerful healing experience."`}
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-red-400 rounded-full flex items-center justify-center text-white font-medium">
@@ -235,8 +235,8 @@ export default function Hero() {
                 ))}
               </div>
               <blockquote className="text-gray-700 leading-relaxed mb-6 text-lg">
-                "The DNA activation session awakened abilities I didn't know I had. Dr. Rashmi's 
-                scientific approach to spirituality is exactly what I was looking for as a tech professional."
+                {`"The DNA activation session awakened abilities I didn't know I had. Dr. Rashmi's 
+                scientific approach to spirituality is exactly what I was looking for as a tech professional."`}
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-medium">
@@ -263,8 +263,8 @@ export default function Hero() {
                 ))}
               </div>
               <blockquote className="text-gray-700 leading-relaxed mb-6 text-lg">
-                "Distance energy healing worked when nothing else did. Her sessions helped me heal 
-                childhood trauma and step into my power as a leader."
+                {`"Distance energy healing worked when nothing else did. Her sessions helped me heal 
+                childhood trauma and step into my power as a leader."`}
               </blockquote>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-400 rounded-full flex items-center justify-center text-white font-medium">

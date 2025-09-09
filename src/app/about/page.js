@@ -63,14 +63,14 @@ export default function AboutPage() {
                     energy the way I could.
                   </p>
                   <p>
-                    It wasn't until years later, through my spiritual studies and meeting others 
-                    with similar gifts, that I realized this wasn't imagination or wishful thinking. 
+                    It wasn&apos;t until years later, through my spiritual studies and meeting others 
+                    with similar gifts, that I realized this wasn&apos;t imagination or wishful thinking. 
                     It was clairvoyance—a genuine psychic ability that I now consider one of my 
                     greatest treasures.
                   </p>
                   <p>
                     My academic journey equipped me with analytical thinking and scientific rigor, 
-                    while my spiritual journey, deeply influenced by my Nani's wisdom, opened me 
+                    while my spiritual journey, deeply influenced by my Nani&apos;s wisdom, opened me 
                     to the mystical world of healing modalities like tarot, reiki, and quantum 
                     energy work.
                   </p>
@@ -115,7 +115,7 @@ export default function AboutPage() {
                   Individual Capacity
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  I focus my counselling style on each client's personal needs and individual 
+                  I focus my counselling style on each client&apos;s personal needs and individual 
                   capacity, ensuring personalized healing experiences.
                 </p>
               </div>
@@ -211,7 +211,7 @@ export default function AboutPage() {
                   </p>
                   <p>
                     Through my work, I especially want to reach women who feel helpless and powerless, 
-                    those who believe they can't change their circumstances. I want to show them their 
+                    those who believe they can&apos;t change their circumstances. I want to show them their 
                     true potential and help them realize their incredible power.
                   </p>
                 </div>
