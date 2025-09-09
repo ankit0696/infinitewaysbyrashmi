@@ -1,88 +1,211 @@
 @import "tailwindcss";
 
-/* Professional Design System Variables */
-:root {
-  --primary-yellow: #ffde59;
-  --primary-white: #ffffff;
-  --primary-red: #8d2e35;
-  --primary-pink: #ff66c4;
-  --secondary-cream: #F6EEE0;
-  --secondary-peach: #E4B7A0;
-  --secondary-desert: #A45C40;
-  --secondary-coral: #C38370;
+@theme {
+  --color-primary-50: #fffbeb;
+  --color-primary-100: #fef3c7;
+  --color-primary-200: #fde68a;
+  --color-primary-300: #fcd34d;
+  --color-primary-400: #fbbf24;
+  --color-primary-500: #ffde59;
+  --color-primary-600: #d97706;
+  --color-primary-700: #b45309;
+  --color-primary-800: #92400e;
+  --color-primary-900: #78350f;
+
+  --color-secondary-50: #fdf2f8;
+  --color-secondary-100: #fce7f3;
+  --color-secondary-200: #fbcfe8;
+  --color-secondary-300: #f9a8d4;
+  --color-secondary-400: #f472b6;
+  --color-secondary-500: #ff66c4;
+  --color-secondary-600: #ec4899;
+  --color-secondary-700: #be185d;
+  --color-secondary-800: #9d174d;
+  --color-secondary-900: #831843;
+
+  --color-accent-50: #fef2f2;
+  --color-accent-100: #fee2e2;
+  --color-accent-200: #fecaca;
+  --color-accent-300: #fca5a5;
+  --color-accent-400: #f87171;
+  --color-accent-500: #8d2e35;
+  --color-accent-600: #dc2626;
+  --color-accent-700: #b91c1c;
+  --color-accent-800: #991b1b;
+  --color-accent-900: #7f1d1d;
+
+  --color-warm-cream: #F6EEE0;
+  --color-warm-peach: #E4B7A0;
+  --color-warm-desert: #A45C40;
+  --color-warm-coral: #C38370;
+
+  --font-display: "Poppins", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 
-/* Professional Typography */
-html {
-  scroll-behavior: smooth;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-}
-
-/* Professional Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@layer base {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+    font-family: var(--font-sans);
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    transition: all 0.3s;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+
+  .btn-primary {
+    background-color: var(--color-primary-500);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
-}
 
-.animate-fade-up {
-  animation: fadeInUp 0.6s ease-out;
-}
+  .btn-primary:hover {
+    background-color: var(--color-primary-600);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
 
-.animate-slide-left {
-  animation: slideInLeft 0.8s ease-out;
-}
+  .btn-secondary {
+    background-color: var(--color-secondary-500);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
 
-/* Professional Gradients */
-.gradient-professional {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-}
+  .btn-secondary:hover {
+    background-color: var(--color-secondary-600);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
 
-.gradient-accent {
-  background: linear-gradient(135deg, var(--primary-yellow) 0%, #fbbf24 100%);
-}
+  .btn-outline {
+    border: 2px solid var(--color-primary-500);
+    color: var(--color-primary-500);
+    background-color: transparent;
+  }
 
-/* Professional Shadows */
-.shadow-professional {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+  .btn-outline:hover {
+    background-color: var(--color-primary-500);
+    color: white;
+  }
 
-.shadow-professional-lg {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
+  .container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-.shadow-brand {
-  box-shadow: 0 10px 25px -5px rgba(141, 46, 53, 0.2);
-}
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
-/* Professional Focus States */
-.focus-professional:focus {
-  outline: 2px solid var(--primary-yellow);
-  outline-offset: 2px;
-}
+  .heading-1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: rgb(17 24 39);
+    line-height: 1.2;
+  }
 
-/* Professional Button Hover Effects */
-.btn-hover-professional {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .heading-2 {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: rgb(17 24 39);
+    line-height: 1.2;
+  }
 
-.btn-hover-professional:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  .heading-3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    color: rgb(17 24 39);
+    line-height: 1.2;
+  }
+
+  .body-large {
+    font-size: 1.125rem;
+    color: rgb(55 65 81);
+    line-height: 1.7;
+  }
+
+  .body-text {
+    font-size: 1rem;
+    color: rgb(75 85 99);
+    line-height: 1.7;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #fff 0%, #F6EEE0 50%, #E4B7A0 100%);
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(243 244 246);
+    transition: all 0.3s;
+  }
+
+  .card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Responsive utilities */
+  @media (min-width: 640px) {
+    .heading-1 {
+      font-size: 3rem;
+    }
+    .heading-2 {
+      font-size: 2.5rem;
+    }
+    .section-padding {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .heading-1 {
+      font-size: 3.75rem;
+    }
+    .heading-2 {
+      font-size: 3rem;
+    }
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
 }

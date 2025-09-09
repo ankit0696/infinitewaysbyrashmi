@@ -1,24 +1,21 @@
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import Hero from '../components/Hero'
+import Navigation from '@/components/Navigation'
+import Hero from '@/components/Hero'
+import AboutPreview from '@/components/AboutPreview'
+import ServicesPreview from '@/components/ServicesPreview'
+import Testimonials from '@/components/Testimonials'
+import CTA from '@/components/CTA'
+import Footer from '@/components/Footer'
 
-export const metadata = {
-  title: 'Dr. Rashmi - Transform Your Energy, Transform Your Life',
-  description: 'Experience profound transformation with Dr. Rashmi, PhD. 6+ years expertise in quantum healing, sound therapy, Access Consciousness, DNA activation in Mumbai, India.',
-  openGraph: {
-    title: 'Dr. Rashmi - Transform Your Energy, Transform Your Life',
-    description: 'Experience profound transformation through quantum physics-based healing modalities',
-  },
-}
-
-export default function HomePage() {
+export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-      </main>
+    <main className="min-h-screen">
+      <Navigation />
+      <Hero />
+      <AboutPreview />
+      <ServicesPreview />
+      <Testimonials />
+      <CTA />
       <Footer />
-    </>
+    </main>
   )
 }
