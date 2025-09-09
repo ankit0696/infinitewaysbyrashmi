@@ -1,7 +1,7 @@
 export default function Testimonials() {
   const testimonials = [
     {
-      text: "Dr. Rashmi\'s sessions completely transformed my perspective on life. Her unique approach combining spirituality with her academic background creates powerful healing experiences.",
+      text: "Dr. Rashmi&apos;s sessions completely transformed my perspective on life. Her unique approach combining spirituality with her academic background creates powerful healing experiences.",
       author: "Sarah M.",
       rating: 5,
       service: "Energy Healing"

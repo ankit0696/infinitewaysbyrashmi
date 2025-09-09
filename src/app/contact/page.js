@@ -48,8 +48,8 @@ export default function Contact() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="heading-1 mb-6">Connect with Dr. Rashmi</h1>
             <p className="body-large">
-              Ready to begin your transformation journey? I'm here to guide you through 
-              energy healing and spiritual awakening. Let's connect and discuss how I can support your growth.
+              Ready to begin your transformation journey? I&apos;m here to guide you through
+              energy healing and spiritual awakening. Let&apos;s connect and discuss how I can support your growth.
             </p>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function Contact() {
               <div className="card p-8">
                 <h2 className="heading-3 mb-6">Book Your Session</h2>
                 <p className="body-text mb-8">
-                  Fill out the form below and I'll get back to you within 24 hours to schedule your personalized session.
+                  Fill out the form below and I&apos;ll get back to you within 24 hours to schedule your personalized session.
                 </p>
                 <ContactForm />
               </div>
@@ -150,7 +150,7 @@ export default function Contact() {
 
                   <div>
                     <h4 className="font-medium text-gray-900 mb-2">What can I expect in my first session?</h4>
-                    <p className="text-sm text-gray-600">We'll start with a consultation to understand your needs and then proceed with the appropriate healing modality.</p>
+                    <p className="text-sm text-gray-600">We&apos;ll start with a consultation to understand your needs and then proceed with the appropriate healing modality.</p>
                   </div>
                 </div>
               </div>
