@@ -12,6 +12,9 @@
   --color-primary-800: #92400e;
   --color-primary-900: #78350f;
 
+  /* Readable yellow for text */
+  --color-primary-text: #b45309; /* Darker yellow for better readability */
+
   --color-secondary-50: #fdf2f8;
   --color-secondary-100: #fce7f3;
   --color-secondary-200: #fbcfe8;
@@ -48,7 +51,7 @@
 
 @layer base {
   :root {
-    --foreground-rgb: 141, 46, 53; /* Changed from black to brand color */
+    --foreground-rgb: 141, 46, 53;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
   }
@@ -64,7 +67,7 @@
   }
 
   body {
-    color: var(--color-brand-text); /* Changed to brand color */
+    color: var(--color-brand-text);
     font-family: var(--font-sans);
   }
 }
@@ -85,7 +88,7 @@
 
   .btn-primary {
     background-color: var(--color-primary-500);
-    color: white;
+    color: white; /* White text on yellow background for best contrast */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
@@ -106,14 +109,15 @@
   }
 
   .btn-outline {
-    border: 2px solid var(--color-primary-500);
-    color: var(--color-primary-500);
+    border: 2px solid var(--color-primary-text); /* Use darker yellow for border */
+    color: var(--color-primary-text); /* Use darker yellow for text */
     background-color: transparent;
   }
 
   .btn-outline:hover {
     background-color: var(--color-primary-500);
     color: white;
+    border-color: var(--color-primary-500);
   }
 
   .container {
@@ -133,7 +137,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     font-family: var(--font-display);
-    color: var(--color-brand-text); /* Changed from black */
+    color: var(--color-brand-text);
     line-height: 1.2;
   }
 
@@ -141,7 +145,7 @@
     font-size: 2rem;
     font-weight: 700;
     font-family: var(--font-display);
-    color: var(--color-brand-text); /* Changed from black */
+    color: var(--color-brand-text);
     line-height: 1.2;
   }
 
@@ -149,20 +153,20 @@
     font-size: 1.5rem;
     font-weight: 600;
     font-family: var(--font-display);
-    color: var(--color-brand-text); /* Changed from black */
+    color: var(--color-brand-text);
     line-height: 1.2;
   }
 
   .body-large {
     font-size: 1.125rem;
-    color: var(--color-brand-text); /* Changed from gray */
+    color: var(--color-brand-text);
     line-height: 1.7;
     opacity: 0.8;
   }
 
   .body-text {
     font-size: 1rem;
-    color: var(--color-brand-text); /* Changed from gray */
+    color: var(--color-brand-text);
     line-height: 1.7;
     opacity: 0.7;
   }
@@ -196,6 +200,72 @@
   .text-brand-lighter {
     color: var(--color-brand-text);
     opacity: 0.6;
+  }
+
+  /* Primary color utilities with better readability */
+  .text-primary-500 {
+    color: var(--color-primary-text); /* Use darker yellow for better readability */
+  }
+
+  .text-primary-600 {
+    color: var(--color-primary-600);
+  }
+
+  .text-primary-700 {
+    color: var(--color-primary-700);
+  }
+
+  /* Hover states for primary text */
+  .hover\:text-primary-500:hover {
+    color: var(--color-primary-text);
+  }
+
+  /* Primary background colors */
+  .bg-primary-500 {
+    background-color: var(--color-primary-500);
+  }
+
+  .bg-primary-50 {
+    background-color: var(--color-primary-50);
+  }
+
+  .bg-primary-100 {
+    background-color: var(--color-primary-100);
+  }
+
+  .bg-primary-600 {
+    background-color: var(--color-primary-600);
+  }
+
+  /* Hover backgrounds */
+  .hover\:bg-primary-50:hover {
+    background-color: var(--color-primary-50);
+  }
+
+  .hover\:bg-primary-500:hover {
+    background-color: var(--color-primary-500);
+  }
+
+  /* Border colors */
+  .border-primary-300 {
+    border-color: var(--color-primary-300);
+  }
+
+  .border-primary-500 {
+    border-color: var(--color-primary-500);
+  }
+
+  .hover\:border-primary-300:hover {
+    border-color: var(--color-primary-300);
+  }
+
+  /* Focus ring colors */
+  .focus\:ring-primary-500:focus {
+    --tw-ring-color: var(--color-primary-500);
+  }
+
+  .focus\:border-primary-500:focus {
+    border-color: var(--color-primary-500);
   }
 
   /* Responsive utilities */
