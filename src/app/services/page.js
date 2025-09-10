@@ -3,42 +3,42 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'Services - Energy Healing & Spiritual Counselling | Infinite Ways',
-  description: 'Discover Dr. Rashmi\'s healing modalities: Access Consciousness Bars, Distance Energy Healing, DNA Activation, Tarot & Astrology readings.',
+  description: 'Discover Dr. Rashmi\'s healing modalities: Tarot Guidance, Intuitive Energy Healing, Sound Bath Meditations, and Manifestation Coaching.',
 }
 
 export default function Services() {
   const services = [
     {
       id: 1,
-      name: "Access Consciousness Bars & Body Processes",
-      description: "Release limiting thoughts and beliefs through gentle touch points on the head. This profound process helps clear mental clutter and opens new possibilities.",
-      duration: "60-90 minutes",
-      type: "In-person/Distance",
-      benefits: ["Mental clarity", "Stress relief", "Improved sleep", "Enhanced creativity"]
+      name: "Tarot Guidance",
+      description: "Each Tarot session brings intuitive clarity and heartfelt direction for your journey. Using ancient wisdom combined with modern insight, I provide guidance for life's important decisions and spiritual growth.",
+      duration: "45-60 minutes",
+      type: "Online/In-person",
+      benefits: ["Intuitive clarity", "Life path guidance", "Decision making", "Spiritual insights"]
     },
     {
       id: 2,
-      name: "Distance Energy Healing",
-      description: "Powerful energy healing sessions conducted remotely using quantum field connection. No physical presence required for transformation.",
-      duration: "45-60 minutes", 
-      type: "Online",
-      benefits: ["Energy alignment", "Emotional balance", "Physical healing", "Spiritual connection"]
+      name: "Intuitive Energy Healing",
+      description: "Imbibe new energy patterns and experience holistic rejuvenation with my intuitive healing. This powerful modality works on multiple levels to restore balance and vitality to your entire being.",
+      duration: "60-90 minutes", 
+      type: "Online/Distance",
+      benefits: ["Chakra balancing", "Emotional healing", "Energy restoration", "Spiritual connection"]
     },
     {
       id: 3,
-      name: "DNA Repair & Activation",
-      description: "Activate dormant DNA strands and repair genetic patterns for optimal wellness. Transform your genetic blueprint energetically.",
-      duration: "60 minutes",
-      type: "Distance/In-person", 
-      benefits: ["Genetic healing", "Ancestral clearing", "Enhanced vitality", "Cellular regeneration"]
+      name: "Sound Bath Meditations",
+      description: "Relax into restorative sound baths, integrating ancient frequencies for full mind-body reset. Experience deep relaxation and healing through the power of therapeutic sound vibrations.",
+      duration: "45-75 minutes",
+      type: "In-person/Online", 
+      benefits: ["Deep relaxation", "Stress relief", "Cellular healing", "Meditation states"]
     },
     {
       id: 4,
-      name: "Tarot & Astrology Readings",
-      description: "Gain clarity and guidance through intuitive tarot readings and astrological insights. Understand your life path and purpose.",
-      duration: "30-60 minutes",
+      name: "Manifestation Coaching",
+      description: "Activate your potential and align your reality with manifestation coaching grounded in deep spiritual practice. Learn to co-create with the universe and manifest your deepest desires.",
+      duration: "60-90 minutes",
       type: "Online/In-person",
-      benefits: ["Life guidance", "Decision clarity", "Future insights", "Self-understanding"]
+      benefits: ["Goal alignment", "Limiting belief clearing", "Visualization mastery", "Action planning"]
     }
   ]
 
@@ -50,10 +50,10 @@ export default function Services() {
       <section className="section-padding gradient-bg">
         <div className="container">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="heading-1 mb-6">Healing Modalities & Services</h1>
+            <h1 className="heading-1 mb-6">Healing That Transforms</h1>
             <p className="body-large">
-              Experience transformation through quantum physics-based healing modalities 
-              designed to remove blocks and align your energy for optimal well-being.
+              Experience profound healing through integration of various modalities where each session is as unique as you are. 
+              Healing sessions are customised as per individual requirements.
             </p>
           </div>
         </div>
