@@ -1,160 +1,165 @@
-'use client'
-import { useState } from 'react'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
+import ContactForm from '@/components/ContactForm'
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+export const metadata = {
+  title: 'Contact Dr. Rashmi - Book Your Session | Infinite Ways',
+  description: 'Connect with Dr. Rashmi Bohra for energy healing sessions, spiritual counselling, and transformational coaching. Book your session today.',
+}
 
-  const services = [
-    'Access Consciousness Bars & Body Processes',
-    'Distance Energy Healing', 
-    'DNA Repair & Activation',
-    'Tarot & Astrology Reading',
-    'General Consultation'
+export default function Contact() {
+  const socialLinks = [
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/infinitewaysbyrashmi',
+      icon: (
+        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.004 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348zm7.718 0c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348z"/>
+        </svg>
+      )
+    },
+    {
+      name: 'Facebook',
+      url: 'https://www.facebook.com/infinitwaysbyrashmi',
+      icon: (
+        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      )
+    },
+    {
+      name: 'YouTube',
+      url: 'https://youtube.com/@dr.rashmi-infiniteways?si=BHw6IKlkz4d1MJ2b',
+      icon: (
+        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      )
+    }
   ]
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    setTimeout(() => {
-      alert('Thank you for your interest! I will get back to you within 24 hours.')
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
-      })
-      setIsSubmitting(false)
-    }, 1000)
-  }
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Name */}
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-          Full Name *
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-          placeholder="Your full name"
-        />
-      </div>
+    <main className="min-h-screen">
+      <Navigation />
 
-      {/* Email */}
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-          Email Address *
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-          placeholder="your@email.com"
-        />
-      </div>
+      {/* Hero Section */}
+      <section className="section-padding gradient-bg">
+        <div className="container">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="heading-1 mb-6">Connect with Dr. Rashmi</h1>
+            <p className="body-large">
+              Ready to begin your transformation journey? I&apos;m here to guide you through 
+              energy healing and spiritual awakening. Let&apos;s connect and discuss how I can support your growth.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      {/* Phone */}
-      <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-          Phone Number
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-          placeholder="+1 (555) 123-4567"
-        />
-      </div>
+      <section className="section-padding">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Contact Form */}
+            <div>
+              <div className="card p-8">
+                <h2 className="heading-3 mb-6">Book Your Session</h2>
+                <p className="body-text mb-8">
+                  Fill out the form below and I&apos;ll get back to you within 24 hours to schedule your personalized session.
+                </p>
+                <ContactForm />
+              </div>
+            </div>
 
-      {/* Service */}
-      <div>
-        <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-          Service Interest
-        </label>
-        <select
-          id="service"
-          name="service"
-          value={formData.service}
-          onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-        >
-          <option value="">Select a service...</option>
-          {services.map((service) => (
-            <option key={service} value={service}>
-              {service}
-            </option>
-          ))}
-        </select>
-      </div>
+            {/* Contact Information */}
+            <div className="space-y-8">
+              {/* Session Types */}
+              <div className="card p-8">
+                <h3 className="text-xl font-semibold text-brand mb-6">Session Options</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-primary-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <div>
+                      <h4 className="font-medium text-brand">Online Sessions</h4>
+                      <p className="text-sm text-brand-light">Distance healing sessions via video call</p>
+                    </div>
+                  </div>
 
-      {/* Message */}
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-          Message *
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-vertical"
-          placeholder="Tell me about your healing goals and any specific concerns..."
-        />
-      </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-primary-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div>
+                      <h4 className="font-medium text-brand">In-Person Sessions</h4>
+                      <p className="text-sm text-brand-light">Available by special arrangement</p>
+                    </div>
+                  </div>
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full btn btn-primary text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {isSubmitting ? (
-          <span className="flex items-center justify-center gap-2">
-            <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-            Sending Message...
-          </span>
-        ) : (
-          'Send Message'
-        )}
-      </button>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-primary-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <h4 className="font-medium text-brand">Flexible Timing</h4>
+                      <p className="text-sm text-brand-light">Sessions available across time zones</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-      <p className="text-sm text-gray-600 text-center">
-        * Required fields. I&apos;ll respond within 24 hours.
-      </p>
-    </form>
+              {/* Social Media */}
+              <div className="card p-8">
+                <h3 className="text-xl font-semibold text-brand mb-6">Follow My Journey</h3>
+                <p className="body-text mb-6">
+                  Stay connected and get daily inspiration through my social media channels.
+                </p>
+
+                <div className="space-y-4">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-3 rounded-lg border border-gray-200 hover:border-primary-300 hover:bg-primary-50 transition-all duration-300"
+                    >
+                      <div className="text-primary-500">{link.icon}</div>
+                      <span className="font-medium text-brand">{link.name}</span>
+                      <svg className="w-4 h-4 text-gray-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* FAQ */}
+              <div className="card p-8">
+                <h3 className="text-xl font-semibold text-brand mb-6">Frequently Asked Questions</h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-medium text-brand mb-2">How long are sessions?</h4>
+                    <p className="text-sm text-brand-light">Sessions typically last 45-90 minutes depending on the service selected.</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium text-brand mb-2">Do you offer distance healing?</h4>
+                    <p className="text-sm text-brand-light">Yes, I specialize in distance energy healing using quantum field connections.</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium text-brand mb-2">What can I expect in my first session?</h4>
+                    <p className="text-sm text-brand-light">We&apos;ll start with a consultation to understand your needs and then proceed with the appropriate healing modality.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
   )
 }

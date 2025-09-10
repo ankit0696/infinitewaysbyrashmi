@@ -17,12 +17,12 @@ export default function Hero() {
               </div>
 
               <h1 className="heading-1 mb-6">
-                Transform Your Energy,
+                <span className="text-brand">Transform Your Energy,</span>
                 <br />
                 <span className="text-primary-500">Transform Your Life</span>
               </h1>
 
-              <p className="body-large text-gray-600 mb-8 max-w-xl">
+              <p className="body-large text-brand-light mb-8 max-w-xl">
                 Experience profound healing through quantum physics-based modalities. 
                 Dr. Rashmi combines scientific expertise with spiritual wisdom to guide your transformation.
               </p>
@@ -37,19 +37,30 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+            {/* Updated Stats */}
+            <div className="grid grid-cols-2 gap-6 pt-8 border-t border-gray-200">
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">6+</div>
-                <div className="text-sm text-gray-600">Years Experience</div>
+                <div className="text-2xl font-bold text-brand">7+</div>
+                <div className="text-sm text-brand-light">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">PhD</div>
-                <div className="text-sm text-gray-600">Computer Science</div>
+                <div className="text-2xl font-bold text-brand">5000+</div>
+                <div className="text-sm text-brand-light">Lives Impacted</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">100%</div>
-                <div className="text-sm text-gray-600">Client Retention</div>
+            </div>
+            
+            {/* Grandmaster Badge */}
+            <div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-xl p-4 border border-primary-200">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-brand">Grandmaster</div>
+                  <div className="text-sm text-brand-light">in multiple healing modalities</div>
+                </div>
               </div>
             </div>
           </div>
@@ -81,10 +92,10 @@ export default function Hero() {
               <div className="absolute -inset-4 rounded-full border border-secondary-500/20 animate-pulse" style={{animationDelay: '0.5s'}}></div>
             </div>
 
-            {/* Name badge */}
+            {/* Updated Name badge - removed PhD */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20">
-              <p className="text-sm font-semibold text-gray-800">Dr. Rashmi Bohra</p>
-              <p className="text-xs text-gray-600">Energy Healer & PhD</p>
+              <p className="text-sm font-semibold text-brand">Dr. Rashmi Bohra</p>
+              <p className="text-xs text-brand-light">Energy Healer & Spiritual Life Coach</p>
             </div>
           </div>
         </div>

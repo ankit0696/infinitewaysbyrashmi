@@ -32,8 +32,8 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="font-display">
-              <h2 className="text-2xl font-bold text-gray-900">Infinite Ways</h2>
-              <p className="text-sm text-gray-600 -mt-1">by Dr. Rashmi</p>
+              <h2 className="text-2xl font-bold text-brand">Infinitewaysbyrashmi</h2>
+              <p className="text-sm text-brand-light -mt-1">by Dr. Rashmi</p>
             </div>
           </Link>
 
@@ -46,7 +46,7 @@ export default function Navigation() {
                 className={`font-medium transition-colors duration-200 ${
                   pathname === item.href
                     ? 'text-primary-500'
-                    : 'text-gray-700 hover:text-primary-500'
+                    : 'text-brand hover:text-primary-500'
                 }`}
               >
                 {item.name}
@@ -60,7 +60,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg text-brand hover:bg-gray-100 transition-colors"
             aria-label="Toggle menu"
           >
             <svg 
@@ -90,7 +90,7 @@ export default function Navigation() {
                   className={`block px-4 py-3 font-medium transition-colors ${
                     pathname === item.href
                       ? 'text-primary-500 bg-primary-50'
-                      : 'text-gray-700 hover:text-primary-500 hover:bg-gray-50'
+                      : 'text-brand hover:text-primary-500 hover:bg-gray-50'
                   }`}
                 >
                   {item.name}

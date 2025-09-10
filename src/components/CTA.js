@@ -12,7 +12,7 @@ export default function CTA() {
             Enter a world of wonders waiting just for you. Begin your transformation journey 
             with personalized healing sessions designed to unlock your infinite potential.
           </p>
-
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link href="/contact" className="bg-white text-primary-500 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
               Book Your Session Now
@@ -21,7 +21,7 @@ export default function CTA() {
               Explore Services
             </Link>
           </div>
-
+          
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto pt-8 border-t border-white/20">
             <div className="text-center">
               <div className="text-2xl font-bold mb-2">✨</div>
@@ -36,7 +36,7 @@ export default function CTA() {
             <div className="text-center">
               <div className="text-2xl font-bold mb-2">💫</div>
               <div className="font-medium">Proven Results</div>
-              <div className="text-sm opacity-80">100% client retention</div>
+              <div className="text-sm opacity-80">5000+ lives impacted</div>
             </div>
           </div>
         </div>

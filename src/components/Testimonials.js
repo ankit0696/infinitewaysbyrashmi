@@ -1,7 +1,7 @@
 export default function Testimonials() {
   const testimonials = [
     {
-      text: "Dr. Rashmi&apos;s sessions completely transformed my perspective on life. Her unique approach combining spirituality with her academic background creates powerful healing experiences.",
+      text: "Dr. Rashmi's sessions completely transformed my perspective on life. Her unique approach combining spirituality with her professional background creates powerful healing experiences.",
       author: "Sarah M.",
       rating: 5,
       service: "Energy Healing"
@@ -28,7 +28,7 @@ export default function Testimonials() {
             Client Stories
           </div>
           <h2 className="heading-2 mb-6">Transformations Speak for Themselves</h2>
-          <p className="body-large text-gray-600">
+          <p className="body-large text-brand-light">
             Discover how clients have experienced profound healing and transformation 
             through our quantum physics-based healing sessions.
           </p>
@@ -45,16 +45,16 @@ export default function Testimonials() {
                   </svg>
                 ))}
               </div>
-
+              
               {/* Quote */}
-              <blockquote className="body-text text-gray-700 mb-6 italic">
-                {testimonial.text}
+              <blockquote className="body-text text-brand-light mb-6 italic">
+                &quot;{testimonial.text}&quot;
               </blockquote>
-
+              
               {/* Author */}
               <div className="border-t pt-4">
-                <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                <div className="text-sm text-gray-600">{testimonial.service}</div>
+                <div className="font-semibold text-brand">{testimonial.author}</div>
+                <div className="text-sm text-brand-lighter">{testimonial.service}</div>
               </div>
             </div>
           ))}

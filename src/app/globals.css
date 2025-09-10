@@ -41,11 +41,14 @@
 
   --font-display: "Poppins", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  
+  /* Custom brand color for text */
+  --color-brand-text: #8d2e35;
 }
 
 @layer base {
   :root {
-    --foreground-rgb: 0, 0, 0;
+    --foreground-rgb: 141, 46, 53; /* Changed from black to brand color */
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
   }
@@ -61,7 +64,7 @@
   }
 
   body {
-    color: rgb(var(--foreground-rgb));
+    color: var(--color-brand-text); /* Changed to brand color */
     font-family: var(--font-sans);
   }
 }
@@ -130,7 +133,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     font-family: var(--font-display);
-    color: rgb(17 24 39);
+    color: var(--color-brand-text); /* Changed from black */
     line-height: 1.2;
   }
 
@@ -138,7 +141,7 @@
     font-size: 2rem;
     font-weight: 700;
     font-family: var(--font-display);
-    color: rgb(17 24 39);
+    color: var(--color-brand-text); /* Changed from black */
     line-height: 1.2;
   }
 
@@ -146,20 +149,22 @@
     font-size: 1.5rem;
     font-weight: 600;
     font-family: var(--font-display);
-    color: rgb(17 24 39);
+    color: var(--color-brand-text); /* Changed from black */
     line-height: 1.2;
   }
 
   .body-large {
     font-size: 1.125rem;
-    color: rgb(55 65 81);
+    color: var(--color-brand-text); /* Changed from gray */
     line-height: 1.7;
+    opacity: 0.8;
   }
 
   .body-text {
     font-size: 1rem;
-    color: rgb(75 85 99);
+    color: var(--color-brand-text); /* Changed from gray */
     line-height: 1.7;
+    opacity: 0.7;
   }
 
   .gradient-bg {
@@ -176,6 +181,21 @@
 
   .card:hover {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Brand text utilities */
+  .text-brand {
+    color: var(--color-brand-text);
+  }
+  
+  .text-brand-light {
+    color: var(--color-brand-text);
+    opacity: 0.8;
+  }
+  
+  .text-brand-lighter {
+    color: var(--color-brand-text);
+    opacity: 0.6;
   }
 
   /* Responsive utilities */
@@ -207,5 +227,34 @@
       padding-left: 2rem;
       padding-right: 2rem;
     }
+  }
+
+  /* Animation keyframes */
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-10px); 
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    0% { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in-out;
   }
 }
