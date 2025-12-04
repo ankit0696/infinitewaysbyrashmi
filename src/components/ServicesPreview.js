@@ -13,16 +13,6 @@ export default function ServicesPreview() {
       color: "bg-primary-500"
     },
     {
-      name: "Intuitive Energy Healing",
-      description: "Imbibe new energy patterns and experience holistic rejuvenation with my intuitive healing",
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      color: "bg-secondary-500"
-    },
-    {
       name: "Sound Bath Meditations",
       description: "Relax into restorative sound baths, integrating ancient frequencies for full mind-body reset",
       icon: (
@@ -58,7 +48,7 @@ export default function ServicesPreview() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
             <div key={index} className="card p-8 text-center hover:shadow-xl transition-all duration-300 group">
               <div className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>

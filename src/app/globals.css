@@ -1,52 +1,57 @@
 @import "tailwindcss";
 
+
 @theme {
+ /* Primary Colors - Gold */
   --color-primary-50: #fffbeb;
   --color-primary-100: #fef3c7;
   --color-primary-200: #fde68a;
   --color-primary-300: #fcd34d;
-  --color-primary-400: #fbbf24;
-  --color-primary-500: #ffde59;
-  --color-primary-600: #d97706;
-  --color-primary-700: #b45309;
-  --color-primary-800: #92400e;
-  --color-primary-900: #78350f;
+  --color-primary-400: #f3d084;
+  --color-primary-500: #D4AF37;
+  --color-primary-600: #c4961f;
+  --color-primary-700: #b8860b;
+  --color-primary-800: #8B6914;
+  --color-primary-900: #5c4415;
 
-  /* Readable yellow for text */
-  --color-primary-text: #b45309; /* Darker yellow for better readability */
-
+  /* Secondary Colors - Bronze */
   --color-secondary-50: #fdf2f8;
   --color-secondary-100: #fce7f3;
   --color-secondary-200: #fbcfe8;
-  --color-secondary-300: #f9a8d4;
-  --color-secondary-400: #f472b6;
-  --color-secondary-500: #ff66c4;
-  --color-secondary-600: #ec4899;
-  --color-secondary-700: #be185d;
-  --color-secondary-800: #9d174d;
-  --color-secondary-900: #831843;
+  --color-secondary-300: #d1a87a;
+  --color-secondary-400: #c4956b;
+  --color-secondary-500: #8B7355;
+  --color-secondary-600: #7a6147;
+  --color-secondary-700: #6b5340;
+  --color-secondary-800: #5a4635;
+  --color-secondary-900: #4a3829;
 
+  /* Accent Colors - Brand Red */
   --color-accent-50: #fef2f2;
   --color-accent-100: #fee2e2;
   --color-accent-200: #fecaca;
   --color-accent-300: #fca5a5;
   --color-accent-400: #f87171;
   --color-accent-500: #8d2e35;
-  --color-accent-600: #dc2626;
+  --color-accent-600: #8d2e35;
   --color-accent-700: #b91c1c;
   --color-accent-800: #991b1b;
   --color-accent-900: #7f1d1d;
 
-  --color-warm-cream: #F6EEE0;
-  --color-warm-peach: #E4B7A0;
-  --color-warm-desert: #A45C40;
-  --color-warm-coral: #C38370;
+  /* Gold & Bronze Tones */
+  --color-gold: #D4AF37;
+  --color-bronze: #8B7355;
+  --color-light-gold: #f3d084;
+  --color-dark-bronze: #5c4415;
+
+  /* Text Colors */
+  --color-primary-text: #5c4415;
+  --color-brand-text: #8d2e35;
+
 
   --font-display: "Poppins", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
   
-  /* Custom brand color for text */
-  --color-brand-text: #8d2e35;
 }
 
 @layer base {

@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Services - Energy Healing & Spiritual Counselling | Infinite Ways',
@@ -14,31 +15,26 @@ export default function Services() {
       description: "Each Tarot session brings intuitive clarity and heartfelt direction for your journey. Using ancient wisdom combined with modern insight, I provide guidance for life's important decisions and spiritual growth.",
       duration: "45-60 minutes",
       type: "Online/In-person",
-      benefits: ["Intuitive clarity", "Life path guidance", "Decision making", "Spiritual insights"]
+      benefits: ["Intuitive clarity", "Life path guidance", "Decision making", "Spiritual insights"],
+      image: "/images/tarot-guidance.jpg"
     },
     {
       id: 2,
-      name: "Intuitive Energy Healing",
-      description: "Imbibe new energy patterns and experience holistic rejuvenation with my intuitive healing. This powerful modality works on multiple levels to restore balance and vitality to your entire being.",
-      duration: "60-90 minutes", 
-      type: "Online/Distance",
-      benefits: ["Chakra balancing", "Emotional healing", "Energy restoration", "Spiritual connection"]
-    },
-    {
-      id: 3,
       name: "Sound Bath Meditations",
       description: "Relax into restorative sound baths, integrating ancient frequencies for full mind-body reset. Experience deep relaxation and healing through the power of therapeutic sound vibrations.",
       duration: "45-75 minutes",
       type: "In-person/Online", 
-      benefits: ["Deep relaxation", "Stress relief", "Cellular healing", "Meditation states"]
+      benefits: ["Deep relaxation", "Stress relief", "Cellular healing", "Meditation states"],
+      image: "/images/sound-bathing.jpg"
     },
     {
-      id: 4,
+      id: 3,
       name: "Manifestation Coaching",
       description: "Activate your potential and align your reality with manifestation coaching grounded in deep spiritual practice. Learn to co-create with the universe and manifest your deepest desires.",
       duration: "60-90 minutes",
       type: "Online/In-person",
-      benefits: ["Goal alignment", "Limiting belief clearing", "Visualization mastery", "Action planning"]
+      benefits: ["Goal alignment", "Limiting belief clearing", "Visualization mastery", "Action planning"],
+      image: "/images/manifestation-coaching.jpg"
     }
   ]
 
@@ -64,7 +60,7 @@ export default function Services() {
         <div className="container">
           <div className="grid gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <div key={service.id} className={`card p-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} flex flex-col lg:flex gap-8`}>
+              <div key={service.id} className={`card p-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} flex flex-col lg:flex gap-8 items-center`}>
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -111,16 +107,13 @@ export default function Services() {
                 </div>
 
                 <div className="flex-1 lg:max-w-sm">
-                  <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl p-8 h-full flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center mx-auto mb-4">
-                        <svg className="w-10 h-10 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                      </div>
-                      <p className="text-sm font-medium text-gray-600">Transform Your Energy</p>
-                    </div>
-                  </div>
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    width={400}
+                    height={400}
+                    className="rounded-lg shadow-lg object-cover w-full h-full"
+                  />
                 </div>
               </div>
             ))}

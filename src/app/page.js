@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import AboutPreview from '@/components/AboutPreview'
 import ServicesPreview from '@/components/ServicesPreview'
+import BlogPreview from '@/components/BlogPreview'
 import Testimonials from '@/components/Testimonials'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <AboutPreview />
       <ServicesPreview />
+      <BlogPreview />
       <Testimonials />
       <CTA />
       <Footer />
