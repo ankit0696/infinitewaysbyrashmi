@@ -84,7 +84,7 @@ export default function About() {
                   Even a decade later, my students remain in touch with me.
                 </p>
                 <p className="body-text">
-                  I completed "Training the Trainer" by Italian trainer Alto Camarazzi, which has been invaluable in my client sessions.
+                  I completed &quot;Training the Trainer&quot; by Italian trainer Alto Camarazzi, which has been invaluable in my client sessions.
                 </p>
               </div>
 
@@ -105,8 +105,8 @@ export default function About() {
                   and meeting others with similar experiences, I understood this was a gift—not imagination.
                 </p>
                 <p className="body-text">
-                  Through dedicated meditation practices, I developed clairvoyance—my "third eye"—which helps me understand 
-                  my clients' individuality and inner workings.
+                  Through dedicated meditation practices, I developed clairvoyance—my &quot;third eye&quot;—which helps me understand 
+                  my clients&apos; individuality and inner workings.
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function About() {
                 <div>
                   <h4 className="text-xl font-semibold text-accent mb-3">Client-Centered Approach</h4>
                   <p className="body-text">
-                    I focus my counselling style on each client's personal needs and individual capacity, 
+                    I focus my counselling style on each client&apos;s personal needs and individual capacity, 
                     bringing my well-defined set of values, tools, and perspectives to every session.
                   </p>
                 </div>
@@ -136,7 +136,7 @@ export default function About() {
             <div className="text-center">
               <h3 className="heading-3 mb-6 text-primary">Looking Forward</h3>
               <p className="body-large mb-8 text-muted">
-                I'm venturing into podcasting to reach women who feel helpless and powerless, 
+                I&apos;m venturing into podcasting to reach women who feel helpless and powerless, 
                 helping them realize their true potential and inner power. My natural empathy, 
                 vision for a better world, and vast knowledge repertoire will guide this mission.
               </p>
