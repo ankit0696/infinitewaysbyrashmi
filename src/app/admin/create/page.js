@@ -7,7 +7,7 @@ import { supabase } from '@/lib/supabaseClient'
 import Link from 'next/link'
 
 export default function CreateBlogPage() {
-  const { isAdmin, loading } = useAuth()
+  // const { isAdmin, loading } = useAuth()
   const router = useRouter()
   const [formData, setFormData] = useState({
     title: '',
