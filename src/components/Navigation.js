@@ -26,11 +26,13 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${ 
-      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/20 ${
+      isScrolled
+        ? 'bg-white/30 backdrop-blur-xl shadow-lg'
+        : 'bg-white/15 backdrop-blur-xl'
     }`}>
       <div className="container">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="font-display">
@@ -82,7 +84,7 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white/70 backdrop-blur-xl shadow-lg border-t border-white/20">
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
                 <Link
