@@ -1,12 +1,10 @@
-'use client'
-
 import { getBlogBySlug } from '@/data/blogPosts'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 
-export default function BlogPostPage({ params }) {
-  const { slug } = params
+export default async function BlogPostPage({ params }) {
+  const { slug } = await params
   const blog = getBlogBySlug(slug)
 
   if (!blog) {
