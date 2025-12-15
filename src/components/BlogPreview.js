@@ -1,30 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { supabase } from '@/lib/supabaseClient'
+import { getRecentBlogs } from '@/data/blogPosts'
 
 export default function BlogPreview() {
-  const [blogs, setBlogs] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchBlogs()
-  }, [])
-
-  const fetchBlogs = async () => {
-    const { data, error } = await supabase
-      .from('blogs')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .limit(3)
-
-    if (data) {
-      setBlogs(data)
-    }
-    setLoading(false)
-  }
+  const blogs = getRecentBlogs(3)
 
   return (
     <section className="section-padding bg-gray-50">
@@ -39,16 +19,14 @@ export default function BlogPreview() {
           </p>
         </div>
 
-        {loading ? (
-          <div className="text-center py-12">Loading latest posts...</div>
-        ) : blogs.length === 0 ? (
+        {blogs.length === 0 ? (
           <div className="text-center py-12 text-muted">
             No blog posts available yet.
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {blogs.map((blog) => (
-              <Link key={blog.id} href={`/blog/${blog.slug}`}>
+              <Link key={blog.id} href={`/blogs/${blog.slug}`}>
                 <article className="card overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105 h-full flex flex-col">
                   <div className="w-full h-48 bg-gradient-to-br from-primary via-secondary to-accent relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center text-white text-opacity-20 text-6xl font-bold">
@@ -85,7 +63,7 @@ export default function BlogPreview() {
         )}
 
         <div className="text-center">
-          <Link href="/blog" className="btn btn-primary">
+          <Link href="/blogs" className="btn btn-primary">
             Explore All Articles
           </Link>
         </div>
