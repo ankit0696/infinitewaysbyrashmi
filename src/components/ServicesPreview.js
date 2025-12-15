@@ -1,67 +1,116 @@
+'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function ServicesPreview() {
   const services = [
     {
       name: "Tarot Guidance",
       description: "Each Tarot session brings intuitive clarity and heartfelt direction for your journey",
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-        </svg>
-      ),
-      color: "bg-primary-500"
+      image: "/images/tarot-guidance.jpg"
     },
     {
       name: "Sound Bath Meditations",
       description: "Relax into restorative sound baths, integrating ancient frequencies for full mind-body reset",
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      ),
-      color: "bg-warm-coral"
+      image: "/images/sound-bathing.jpg"
     },
     {
       name: "Manifestation Coaching",
       description: "Activate your potential and align your reality with manifestation coaching grounded in deep spiritual practice",
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-        </svg>
-      ),
-      color: "bg-accent-500"
+      image: "/images/manifestation-coaching.jpg"
     }
   ]
 
   return (
-    <section className="section-padding bg-gray-50">
-      <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-            Healing Services
-          </div>
-          <h2 className="heading-2 mb-6">Healing That Transforms</h2>
-          <p className="body-large text-brand-light">
-            Experience profound healing through integration of various modalities where each session is as unique as you are. 
-            Healing sessions are customised as per individual requirements.
+    <section className="section-padding bg-gradient-to-b from-white via-slate-50 to-white dark:from-gray-900 dark:via-slate-800 dark:to-gray-900 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-20 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500/5 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="container relative z-10">
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <p className="uppercase tracking-[0.25em] text-xs font-semibold text-secondary-500 mb-4">Transformative Work</p>
+          <h2 className="heading-2 mb-6">Healing Services Tailored to You</h2>
+          <p className="body-large text-brand-light max-w-3xl mx-auto">
+            Each session blends modalities uniquely suited to your needs. Experience profound transformation through personalized, heartfelt healing.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
-            <div key={index} className="card p-8 text-center hover:shadow-xl transition-all duration-300 group">
-              <div className={`w-16 h-16 ${service.color} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                {service.icon}
+            <div 
+              key={index} 
+              className="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-200/50 dark:border-white/5 hover:border-secondary/30 dark:hover:border-secondary/40"
+              style={{
+                animation: `fadeInUp 0.6s ease-out ${index * 0.15}s both`
+              }}
+            >
+              {/* Top accent bar */}
+              <div className={`absolute top-0 left-0 right-0 h-1 z-20 ${
+                index === 0 ? 'bg-primary-500' :
+                index === 1 ? 'bg-warm-coral' :
+                'bg-accent-500'
+              } group-hover:h-1.5 transition-all duration-500`} />
+              
+              {/* Image Container */}
+              <div className="relative w-full h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
+                <Image
+                  src={service.image}
+                  alt={service.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              <h3 className="text-xl font-semibold text-brand mb-4">{service.name}</h3>
-              <p className="body-text text-brand-light">{service.description}</p>
+              
+              {/* Content Container */}
+              <div className="relative z-10 p-8 space-y-6">
+                {/* Top section with title and arrow */}
+                <div className="flex items-start justify-between">
+                  <h3 className="heading-3 text-slate-900 dark:text-white group-hover:text-secondary transition-colors duration-300 flex-1 pr-4">
+                    {service.name}
+                  </h3>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex-shrink-0">
+                    <svg className="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* Description */}
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                  {service.description}
+                </p>
+                
+                {/* CTA Link */}
+                <div className="pt-2">
+                  <Link 
+                    href="/services" 
+                    className="inline-flex items-center text-secondary-600 dark:text-secondary-400 font-medium text-sm hover:text-secondary-700 dark:hover:text-secondary-300 transition-colors group/link"
+                  >
+                    Learn more
+                    <svg className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              
+              {/* Animated bottom line */}
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-secondary-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
 
-        <div className="text-center">
-          <p className="body-text text-brand-light mb-8 max-w-2xl mx-auto">
+        {/* Bottom CTA Section */}
+        <div className="relative rounded-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:via-secondary-500/20 dark:to-accent-500/20 border border-primary-500/20 dark:border-primary-500/30 p-12 text-center backdrop-blur-sm">
+          <h3 className="heading-3 text-slate-900 dark:text-white mb-4">Ready to Transform Your Energy?</h3>
+          <p className="body-text text-brand-light max-w-2xl mx-auto mb-8">
             Each session is personalized to your unique needs and energetic signature. 
             Let&apos;s work together to unlock your infinite potential.
           </p>
@@ -75,6 +124,19 @@ export default function ServicesPreview() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   )
 }
