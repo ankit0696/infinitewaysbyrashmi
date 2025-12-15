@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabaseClient'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import { fallbackBlogs } from '@/lib/fallbackBlogs'
 
 export default function BlogPostPage({ params }) {
   const { slug } = params
@@ -26,6 +27,9 @@ export default function BlogPostPage({ params }) {
 
     if (data) {
       setBlog(data)
+    } else {
+      const localFallback = fallbackBlogs.find((entry) => entry.slug === slug)
+      setBlog(localFallback || null)
     }
     setLoading(false)
   }
@@ -41,7 +45,7 @@ export default function BlogPostPage({ params }) {
         <main className="section-padding text-center">
           <h1 className="heading-2">Blog post not found</h1>
           <p className="body-text my-4">Sorry, we couldn&apos;t find that blog post.</p>
-          <Link href="/blog" className="btn btn-primary">
+          <Link href="/blogs" className="btn btn-primary">
             Back to Blog
           </Link>
         </main>
@@ -54,40 +58,63 @@ export default function BlogPostPage({ params }) {
     <>
       <Navigation />
       <main className="bg-surface">
-        <div className="w-full h-64 md:h-96 bg-gradient-to-br from-primary via-secondary to-accent" />
-        
-        <div className="container -mt-32 md:-mt-48">
-          <div className="max-w-4xl mx-auto">
-            <div className="card p-8 md:p-12 mb-12">
-              <div className="text-center mb-8">
-                <Link href="/blog" className="text-secondary font-semibold hover:text-primary transition">
-                  &larr; Back to all articles
-                </Link>
-                <h1 className="heading-1 mt-4 mb-4">{blog.title}</h1>
-                <div className="flex items-center justify-center space-x-4 text-muted">
-                  <span>{new Date(blog.created_at).toLocaleDateString()}</span>
-                  <span>&bull;</span>
-                  <span className="uppercase text-xs font-semibold tracking-wider">{blog.category}</span>
+        {(() => {
+          const coverImage = blog?.image_url || '/images/hero-image.jpg'
+          return (
+            <div
+              className="relative z-0 h-80 md:h-[420px] w-full overflow-hidden"
+              aria-hidden
+            >
+              <img
+                src={coverImage}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black/70" />
+              <div className="absolute inset-x-0 bottom-0 px-6 pb-10 sm:px-10 lg:px-16">
+                <div className="max-w-5xl text-white drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
+                  <p className="uppercase tracking-[0.25em] text-xs font-semibold text-white/70">{blog.category}</p>
+                  <h1 className="heading-1 mt-3 mb-3 text-white">{blog.title}</h1>
+                  <div className="flex items-center gap-3 text-white/80 text-sm">
+                    <time dateTime={blog.created_at}>{new Date(blog.created_at).toLocaleDateString()}</time>
+                    <span>&bull;</span>
+                    <Link href="/blogs" className="underline underline-offset-4 decoration-white/50 hover:decoration-white">
+                      Back to all articles
+                    </Link>
+                  </div>
                 </div>
               </div>
-
-              {/* You would render your blog content here. 
-                  For now, we'll just show the excerpt. 
-                  A real implementation would use a Markdown renderer for the blog body. */}
-              <div className="prose lg:prose-xl max-w-none mx-auto text-brand-light">
-                <p className="lead">{blog.excerpt}</p>
-                <p>
-                  This is where the full content of the blog post would go. For this example, we are only showing the excerpt. 
-                  To implement the full blog, you would typically fetch the full content (e.g., in Markdown format) and render it here.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-              </div>
             </div>
+          )
+        })()}
+
+        <div className="container relative z-10 pt-12 md:pt-16 pb-20">
+          <div className="max-w-5xl mx-auto">
+            <article className="rounded-3xl bg-white shadow-3xl ring-1 ring-slate-200/80 dark:bg-slate-900 dark:ring-white/10 overflow-hidden">
+              <div className="px-6 py-6 sm:px-10 sm:py-10">
+                <div className="flex flex-wrap items-center gap-3 text-sm text-muted mb-6">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-secondary-100 px-3 py-1 text-secondary-800 font-semibold">
+                    {blog.category}
+                  </span>
+                  <span className="text-slate-500">{new Date(blog.created_at).toLocaleDateString()}</span>
+                </div>
+
+                <div className="prose prose-lg lg:prose-xl max-w-none text-slate-800 prose-headings:font-semibold prose-headings:text-slate-900 prose-p:text-slate-700 dark:text-slate-100 dark:prose-headings:text-white">
+                  {Array.isArray(blog.content) && blog.content.length > 0 ? (
+                    blog.content.map((paragraph, idx) => (
+                      <p
+                        key={idx}
+                        className={`${idx === 0 ? 'text-xl' : 'text-lg'} leading-relaxed text-slate-800 dark:text-slate-50 mb-6 last:mb-0`}
+                      >
+                        {paragraph}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="text-xl leading-relaxed mb-6">{blog.excerpt}</p>
+                  )}
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </main>

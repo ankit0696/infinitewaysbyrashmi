@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient'
+import { fallbackBlogs } from '@/lib/fallbackBlogs'
 
 export default function BlogPreview() {
   const [blogs, setBlogs] = useState([])
@@ -20,9 +21,8 @@ export default function BlogPreview() {
       .order('created_at', { ascending: false })
       .limit(3)
 
-    if (data) {
-      setBlogs(data)
-    }
+    const hasData = data && data.length > 0
+    setBlogs(hasData ? data : fallbackBlogs.slice(0, 3))
     setLoading(false)
   }
 
@@ -48,7 +48,7 @@ export default function BlogPreview() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {blogs.map((blog) => (
-              <Link key={blog.id} href={`/blog/${blog.slug}`}>
+              <Link key={blog.id} href={`/blogs/${blog.slug}`}>
                 <article className="card overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105 h-full flex flex-col">
                   <div className="w-full h-48 bg-gradient-to-br from-primary via-secondary to-accent relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center text-white text-opacity-20 text-6xl font-bold">

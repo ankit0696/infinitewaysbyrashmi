@@ -5,61 +5,11 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient'
+import { fallbackBlogs } from '@/lib/fallbackBlogs'
 
 export default function BlogPage() {
   const [blogs, setBlogs] = useState([])
   const [loading, setLoading] = useState(true)
-
-  const posts = [
-    // {
-    //   id: 1,
-    //   title: 'Boost your conversion rate',
-    //   href: '#',
-    //   description:
-    //     'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-    //   imageUrl:
-    //     'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-    //   date: 'Mar 16, 2020',
-    //   datetime: '2020-03-16',
-    //   author: {
-    //     name: 'Michael Foster',
-    //     imageUrl:
-    //       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    //   },
-    // },
-    // {
-    //   id: 2,
-    //   title: 'How to use search engine optimization to drive sales',
-    //   href: '#',
-    //   description:
-    //     'Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.',
-    //   imageUrl:
-    //     'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
-    //   date: 'Mar 10, 2020',
-    //   datetime: '2020-03-10',
-    //   author: {
-    //     name: 'Lindsay Walton',
-    //     imageUrl:
-    //       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    //   },
-    // },
-    // {
-    //   id: 3,
-    //   title: 'Improve your customer experience',
-    //   href: '#',
-    //   description:
-    //     'Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis.',
-    //   imageUrl:
-    //     'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
-    //   date: 'Feb 12, 2020',
-    //   datetime: '2020-02-12',
-    //   author: {
-    //     name: 'Tom Cook',
-    //     imageUrl:
-    //       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    //   },
-    // },
-  ]
 
   useEffect(() => {
     fetchBlogs()
@@ -72,75 +22,87 @@ export default function BlogPage() {
       .eq('published', true)
       .order('created_at', { ascending: false })
 
-    if (data) {
-      setBlogs(data)
-    }
+    const hasData = data && data.length > 0
+    setBlogs(hasData ? data : fallbackBlogs)
     setLoading(false)
   }
 
   return (
     <>
       <Navigation />
-
-
-      <section className="section-padding gradient-bg">
-        <div className="container">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="heading-1 mb-6">From My Heart to Yours: The Infinite Ways Blog</h1>
-            <p className="body-large">
-              Dive into articles where I share insights, techniques, and stories about energy healing,
-              personal transformation, and holistic well-being.
-            </p>
-          </div>
+      <section
+        className="relative overflow-hidden bg-surface"
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, rgba(15, 23, 42, 0.65), rgba(20, 83, 136, 0.55)), url('/images/hero-image.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="relative container py-24 sm:py-28 text-center text-white">
+          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-secondary-100">The Infinite Ways Blog</p>
+          <h1 className="heading-1 mt-4 mb-6">Stories, Insights, and Energy Shifts</h1>
+          <p className="max-w-3xl mx-auto text-lg text-white/80">
+            Gentle, heart-led essays on manifestation, energy work, and everyday moments that remind us magic is near.
+          </p>
         </div>
       </section>
-      <main className='bg-surface'>
-        <div className='bg-white py-12 sm:py-18 dark:bg-gray-900'>
-          <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-            <div className='mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
-              {posts.map((post) => (
-                <article
-                  key={post.id}
-                  className='relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 sm:pt-48 lg:pt-80 dark:bg-gray-800'
-                >
-                  <img
-                    alt=''
-                    src={post.imageUrl}
-                    className='absolute inset-0 -z-10 size-full object-cover'
-                  />
-                  <div className='absolute inset-0 -z-10 bg-linear-to-t from-gray-900 via-gray-900/40 dark:from-black/80 dark:via-black/40' />
-                  <div className='absolute inset-0 -z-10 rounded-2xl inset-ring inset-ring-gray-900/10 dark:inset-ring-white/10' />
 
-                  <div className='flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300'>
-                    <time dateTime={post.datetime} className='mr-8'>
-                      {post.date}
-                    </time>
-                    <div className='-ml-4 flex items-center gap-x-4'>
-                      <svg
-                        viewBox='0 0 2 2'
-                        className='-ml-0.5 size-0.5 flex-none fill-white/50 dark:fill-gray-300/50'
-                      >
-                        <circle r={1} cx={1} cy={1} />
-                      </svg>
-                      <div className='flex gap-x-2.5'>
-                        <img
-                          alt=''
-                          src={post.author.imageUrl}
-                          className='size-6 flex-none rounded-full bg-white/10 dark:bg-gray-800/10'
-                        />
-                        {post.author.name}
-                      </div>
-                    </div>
-                  </div>
-                  <h3 className='mt-3 text-lg/6 font-semibold text-white'>
-                    <a href={post.href}>
-                      <span className='absolute inset-0' />
-                      {post.title}
-                    </a>
-                  </h3>
-                </article>
-              ))}
+      <main className='bg-surface'>
+        <div className='bg-white dark:bg-gray-900'>
+          <div className='mx-auto max-w-6xl px-6 lg:px-10 py-16 lg:py-20'>
+            <div className='flex items-center justify-between flex-wrap gap-4'>
+              <div>
+                <p className='text-sm uppercase tracking-[0.25em] text-secondary-500'>Latest reflections</p>
+                <h2 className='heading-2 mt-2'>Freshly poured stories</h2>
+              </div>
+              <Link href='/contact' className='btn btn-secondary'>Work With Me</Link>
             </div>
+
+            {loading ? (
+              <div className='text-center py-20 text-muted'>Loading articles...</div>
+            ) : blogs.length === 0 ? (
+              <div className='text-center py-20 text-muted'>No articles available yet.</div>
+            ) : (
+              <div className='grid gap-10 mt-10 md:grid-cols-2 lg:grid-cols-3'>
+                {blogs.map((post) => {
+                  const cover = post.image_url || '/images/hero-image.jpg'
+                  return (
+                    <article
+                      key={post.id}
+                      className='group overflow-hidden rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 text-white shadow-2xl ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-2'
+                    >
+                      <div className='relative h-56 w-full overflow-hidden'>
+                        <img
+                          src={cover}
+                          alt={post.title}
+                          className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105'
+                        />
+                        <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10' />
+                        <div className='absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-white/80'>
+                          <span className='px-3 py-1 rounded-full bg-white/10 backdrop-blur'>{post.category}</span>
+                          <time dateTime={post.created_at}>{new Date(post.created_at).toLocaleDateString()}</time>
+                        </div>
+                      </div>
+
+                      <div className='p-7 flex flex-col gap-4'>
+                        <h3 className='heading-3 text-white leading-tight group-hover:text-secondary transition-colors duration-200'>
+                          <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
+                        </h3>
+                        <p className='text-white/80 leading-relaxed line-clamp-3'>{post.excerpt}</p>
+                        <div className='flex items-center justify-between pt-2 text-secondary font-semibold'>
+                          <Link href={`/blogs/${post.slug}`} className='inline-flex items-center gap-2'>
+                            Read story
+                            <span aria-hidden='true'>→</span>
+                          </Link>
+                        </div>
+                      </div>
+                    </article>
+                  )
+                })}
+              </div>
+            )}
           </div>
         </div>
       </main>
