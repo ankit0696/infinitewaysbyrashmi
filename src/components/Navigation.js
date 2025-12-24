@@ -28,21 +28,24 @@ export default function Navigation() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/20 ${
       isScrolled
-        ? 'bg-white/30 backdrop-blur-xl shadow-lg'
-        : 'bg-white/15 backdrop-blur-xl'
+        ? 'bg-white/90 backdrop-blur-md shadow-lg'
+        : 'bg-white/80 backdrop-blur-md'
     }`}>
-      <div className="container">
-        <div className="flex items-center justify-between h-14 md:h-16">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <div className="font-display">
-              <h2 className="text-2xl font-bold text-brand">Infinitewaysbyrashmi</h2>
-              <p className="text-sm text-brand-light -mt-1">by Dr. Rashmi</p>
-            </div>
-          </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+      <div className="container">
+        <div className="flex flex-col md:flex-row items-center md:items-stretch justify-between h-auto md:h-16 py-2 md:py-0">
+          {/* Logo Left */}
+          <div className="flex flex-1 items-center justify-start">
+            <Link href="/" className="flex-shrink-0">
+              <div className="font-display text-center md:text-left">
+                  <h2 className="text-2xl font-bold text-brand dark:text-white drop-shadow-md">Infinitewaysbyrashmi</h2>
+                  <p className="text-sm text-brand-light dark:text-white/80 -mt-1 drop-shadow">by Dr. Rashmi</p>
+              </div>
+            </Link>
+          </div>
+
+          {/* Nav Links Center */}
+          <div className="hidden md:flex flex-1 items-center justify-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -50,36 +53,42 @@ export default function Navigation() {
                 className={`font-medium transition-colors duration-200 ${
                   pathname === item.href
                     ? 'text-primary-500'
-                    : 'text-brand hover:text-primary-500'
+                    : 'text-brand hover:text-primary-500 dark:text-white dark:hover:text-primary-300'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
+          </div>
+
+          {/* CTA Right */}
+          <div className="hidden md:flex flex-1 items-center justify-end">
             <Link href="/contact" className="btn btn-primary">
               Book Session
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-brand hover:bg-gray-100 transition-colors"
-            aria-label="Toggle menu"
-          >
-            <svg 
-              className={`w-6 h-6 transition-transform duration-200 ${isMenuOpen ? 'rotate-90' : ''}`} 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
+          {/* Mobile Menu Button - Centered */}
+          <div className="flex md:hidden flex-1 justify-center mt-2">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-lg text-brand hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
             >
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              <svg 
+                className={`w-6 h-6 transition-transform duration-200 ${isMenuOpen ? 'rotate-90' : ''}`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

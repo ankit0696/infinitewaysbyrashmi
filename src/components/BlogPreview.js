@@ -2,8 +2,28 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { supabase } from '@/lib/supabaseClient'
 import { fallbackBlogs } from '@/lib/fallbackBlogs'
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+}
 
 export default function BlogPreview() {
   const [blogs, setBlogs] = useState([])
@@ -14,7 +34,7 @@ export default function BlogPreview() {
   }, [])
 
   const fetchBlogs = async () => {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('blogs')
       .select('*')
       .eq('published', true)
@@ -27,69 +47,99 @@ export default function BlogPreview() {
   }
 
   return (
-    <section className="section-padding bg-white dark:bg-gray-900">
-      <div className="container">
-        <div className="flex items-center justify-between flex-wrap gap-6 mb-16">
-          <div className="flex-1 min-w-64">
-            <p className="uppercase tracking-[0.25em] text-xs font-semibold text-secondary-500 mb-2">Latest Stories</p>
-            <h2 className="heading-2 mb-4">From the Heart</h2>
-            <p className="body-large text-brand-light max-w-2xl">
-              Reflections on energy, growth, manifestation, and living with intention.
-            </p>
-          </div>
-          <div>
-            <Link href="/blogs" className="btn btn-secondary whitespace-nowrap">View All Articles</Link>
-          </div>
-        </div>
+    <section className="relative section-padding bg-gradient-to-b from-[#fafafa] via-white to-[#f9f9f9]">
+      {/* subtle background texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_#f1f5f9,_transparent_70%)] pointer-events-none" />
 
+      <div className="container relative">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20 max-w-2xl mx-auto"
+        >
+          <p className="uppercase tracking-[0.3em] text-xs font-semibold text-secondary-500 mb-4">
+            Latest Insights
+          </p>
+          <h2 className="heading-2 mb-6">From the Heart</h2>
+          <p className="body-large text-muted mb-8">
+            Reflections on energy, healing, awareness, and conscious living.
+          </p>
+
+          <Link
+            href="/blogs"
+            className="inline-flex items-center gap-2 text-secondary font-semibold group"
+          >
+            View All Articles
+            <span className="transform transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+        </motion.div>
+
+        {/* States */}
         {loading ? (
-          <div className="text-center py-16 text-muted">Loading latest posts...</div>
+          <div className="text-center py-20 text-muted">Loading latest posts…</div>
         ) : blogs.length === 0 ? (
-          <div className="text-center py-16 text-muted">
+          <div className="text-center py-20 text-muted">
             No blog posts available yet.
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
             {blogs.map((blog) => {
               const coverImage = blog.image_url || '/images/hero-image.jpg'
+
               return (
-                <Link key={blog.id} href={`/blogs/${blog.slug}`}>
-                  <article className="group overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col ring-1 ring-slate-200/50 dark:ring-white/10">
-                    <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
-                      <img
-                        src={coverImage}
-                        alt={blog.title}
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <span className="inline-block px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white text-xs font-semibold uppercase tracking-wide">
+                <motion.div key={blog.id} variants={cardVariants}>
+                  <Link href={`/blogs/${blog.slug}`} className="group block h-full">
+                    <article className="relative h-full overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)] ring-1 ring-slate-200 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.25)]">
+                      
+                      {/* Image */}
+                      <div className="relative h-52 overflow-hidden">
+                        <img
+                          src={coverImage}
+                          alt={blog.title}
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+
+                        <span className="absolute bottom-4 left-4 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold backdrop-blur">
                           {blog.category}
                         </span>
                       </div>
-                    </div>
-                    
-                    <div className="p-6 flex flex-col flex-grow gap-4">
-                      <h3 className="heading-3 text-slate-900 dark:text-white line-clamp-2 group-hover:text-secondary transition-colors">
-                        {blog.title}
-                      </h3>
-                      
-                      <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed line-clamp-2">
-                        {blog.excerpt}
-                      </p>
-                      
-                      <div className="flex items-center justify-between mt-auto pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
-                        <span className="text-xs text-slate-500 dark:text-slate-400">
-                          {new Date(blog.created_at).toLocaleDateString()}
-                        </span>
-                        <span className="text-secondary font-semibold text-sm group-hover:translate-x-1 transition-transform">Read →</span>
+
+                      {/* Content */}
+                      <div className="p-6 flex flex-col gap-4">
+                        <h3 className="text-lg font-semibold text-slate-900 leading-snug line-clamp-2 group-hover:text-secondary transition-colors">
+                          {blog.title}
+                        </h3>
+
+                        <p className="text-sm text-slate-600 leading-relaxed line-clamp-3">
+                          {blog.excerpt}
+                        </p>
+
+                        <div className="mt-auto pt-4 flex items-center justify-between text-xs text-slate-500">
+                          <span>
+                            {new Date(blog.created_at).toLocaleDateString()}
+                          </span>
+                          <span className="flex items-center gap-1 font-semibold text-secondary">
+                            Read
+                            <span className="transition-transform group-hover:translate-x-1">→</span>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                </Link>
+                    </article>
+                  </Link>
+                </motion.div>
               )
             })}
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

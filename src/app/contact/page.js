@@ -13,17 +13,34 @@ export default function Contact() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="section-padding gradient-bg">
-        <div className="container">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="heading-1 mb-6">Connect with Dr. Rashmi</h1>
-            <p className="body-large">
-              Ready to begin your transformation journey? I&apos;m here to guide you through 
-              energy healing and spiritual awakening. Let&apos;s connect and discuss how I can support your growth.
-            </p>
-          </div>
-        </div>
-      </section>
+<section
+  className="relative overflow-hidden bg-surface"
+  style={{
+    backgroundImage:
+      "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.78)), url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/70" />
+
+  <div className="relative container py-24 sm:py-28 text-center">
+    <p className="uppercase tracking-[0.2em] text-sm font-semibold text-gray-900">
+      Let’s Connect
+    </p>
+
+    <h1 className="heading-1 mt-4 mb-6 text-gray-900">
+      Connect with Dr. Rashmi
+    </h1>
+
+    <p className="max-w-3xl mx-auto text-lg text-gray-700">
+      Ready to begin your transformation journey? I’m here to gently guide you
+      through energy healing and spiritual awakening. Let’s connect and explore
+      how I can support your growth, clarity, and inner balance.
+    </p>
+  </div>
+</section>
+
 
       <section className="section-padding">
         <div className="container">

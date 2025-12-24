@@ -34,16 +34,16 @@ export default function BlogPage() {
         className="relative overflow-hidden bg-surface"
         style={{
           backgroundImage:
-            "linear-gradient(135deg, rgba(15, 23, 42, 0.65), rgba(20, 83, 136, 0.55)), url('/images/hero-image.jpg')",
+            "linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-        <div className="relative container py-24 sm:py-28 text-center text-white">
-          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-secondary-100">The Infinite Ways Blog</p>
-          <h1 className="heading-1 mt-4 mb-6">Stories, Insights, and Energy Shifts</h1>
-          <p className="max-w-3xl mx-auto text-lg text-white/80">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/60" />
+        <div className="relative container py-24 sm:py-28 text-center">
+          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-gray-900">The Infinite Ways Blog</p>
+          <h1 className="heading-1 mt-4 mb-6 text-gray-900">Stories, Insights, and Energy Shifts</h1>
+          <p className="max-w-3xl mx-auto text-lg text-gray-700">
             Gentle, heart-led essays on manifestation, energy work, and everyday moments that remind us magic is near.
           </p>
         </div>

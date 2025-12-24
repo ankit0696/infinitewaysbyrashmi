@@ -14,17 +14,36 @@ export default function About() {
       <Navigation />
       
       {/* Hero Section with Image */}
-      <section className="section-padding gradient-bg">
-        <div className="container">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="heading-1 mb-6 text-primary">My Journey of Transformation</h1>
-            <p className="body-large text-muted">
-              From the academic world of Computer Science to the mystical realm of energy healing,
-              my path has been one of continuous learning, growth, and spiritual awakening.
-            </p>
-          </div>
-        </div>
-      </section>
+      
+<section
+  className="relative overflow-hidden bg-surface"
+  style={{
+    backgroundImage:
+      "linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,255,255,0.75)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/75 to-white/65" />
+
+  <div className="relative container py-24 sm:py-28 text-center">
+    <p className="uppercase tracking-[0.2em] text-sm font-semibold text-gray-900">
+      A Personal Journey
+    </p>
+
+    <h1 className="heading-1 mt-4 mb-6 text-gray-900">
+      My Journey of Transformation
+    </h1>
+
+    <p className="max-w-3xl mx-auto text-lg text-gray-700">
+      From the structured world of Computer Science to the intuitive, mystical
+      realm of energy healing, this space reflects my path of continuous learning,
+      inner growth, and spiritual awakening—shared through stories, insights,
+      and lived experiences.
+    </p>
+  </div>
+</section>
+
 
       {/* About Me with Image */}
       <section className="section-padding">

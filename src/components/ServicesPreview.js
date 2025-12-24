@@ -2,141 +2,171 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: 'easeOut',
+    },
+  },
+}
 
 export default function ServicesPreview() {
   const services = [
     {
-      name: "Tarot Guidance",
-      description: "Each Tarot session brings intuitive clarity and heartfelt direction for your journey",
-      image: "/images/tarot-guidance.jpg"
+      name: 'Tarot & Intuitive Guidance',
+      description:
+        'A reflective, intuitive space to gain clarity, insight, and direction. Tarot is used as a mirror—helping you understand current energies, patterns, and aligned next steps.',
+      image: '/images/tarot-guidance.jpg',
+      accent: 'from-primary-400 to-primary-600',
     },
     {
-      name: "Sound Bath Meditations",
-      description: "Relax into restorative sound baths, integrating ancient frequencies for full mind-body reset",
-      image: "/images/sound-bathing.jpg"
+      name: 'Sound Healing & Meditative Journeys',
+      description:
+        'Gentle sound baths using healing frequencies to calm the nervous system, release emotional tension, and restore inner balance—allowing deep rest and energetic reset.',
+      image: '/images/sound-bathing.jpg',
+      accent: 'from-rose-300 to-warm-coral',
     },
     {
-      name: "Manifestation Coaching",
-      description: "Activate your potential and align your reality with manifestation coaching grounded in deep spiritual practice",
-      image: "/images/manifestation-coaching.jpg"
-    }
+      name: 'Manifestation & Energy Alignment',
+      description:
+        'Personalised sessions to dissolve inner blocks, shift limiting beliefs, and align your energy with your intentions—supporting conscious creation from a grounded, soulful place.',
+      image: '/images/manifestation-coaching.jpg',
+      accent: 'from-accent-400 to-accent-600',
+    },
   ]
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white via-slate-50 to-white dark:from-gray-900 dark:via-slate-800 dark:to-gray-900 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-20 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500/5 rounded-full blur-3xl pointer-events-none" />
-      
-      <div className="container relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-20">
-          <p className="uppercase tracking-[0.25em] text-xs font-semibold text-secondary-500 mb-4">Transformative Work</p>
-          <h2 className="heading-2 mb-6">Healing Services Tailored to You</h2>
-          <p className="body-large text-brand-light max-w-3xl mx-auto">
-            Each session blends modalities uniquely suited to your needs. Experience profound transformation through personalized, heartfelt healing.
+    <section className="relative section-padding bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
+      {/* ambient background */}
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-primary-400/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary-400/5 rounded-full blur-3xl" />
+
+      <div className="container relative">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20 max-w-3xl mx-auto"
+        >
+          <p className="uppercase tracking-[0.3em] text-xs font-semibold text-secondary-500 mb-4">
+            Ways to Work Together
           </p>
-        </div>
+          <h2 className="heading-2 mb-6">Healing Services</h2>
+          <p className="body-large text-brand-light">
+            Each offering is intuitive, personalised, and guided with care — supporting
+            emotional release, energetic alignment, and inner clarity.
+          </p>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24"
+        >
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-200/50 dark:border-white/5 hover:border-secondary/30 dark:hover:border-secondary/40"
-              style={{
-                animation: `fadeInUp 0.6s ease-out ${index * 0.15}s both`
-              }}
+            <motion.article
+              key={index}
+              variants={cardVariants}
+              whileHover={{ y: -8 }}
+              className="group relative rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)] ring-1 ring-slate-200 transition-all duration-500 hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.25)] overflow-hidden"
             >
-              {/* Top accent bar */}
-              <div className={`absolute top-0 left-0 right-0 h-1 z-20 ${
-                index === 0 ? 'bg-primary-500' :
-                index === 1 ? 'bg-warm-coral' :
-                'bg-accent-500'
-              } group-hover:h-1.5 transition-all duration-500`} />
-              
-              {/* Image Container */}
-              <div className="relative w-full h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
+              {/* Accent gradient */}
+              <div
+                className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${service.accent}`}
+              />
+
+              {/* Image */}
+              <div className="relative h-52 overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.name}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              
-              {/* Content Container */}
-              <div className="relative z-10 p-8 space-y-6">
-                {/* Top section with title and arrow */}
+
+              {/* Content */}
+              <div className="p-8 flex flex-col gap-6">
                 <div className="flex items-start justify-between">
-                  <h3 className="heading-3 text-slate-900 dark:text-white group-hover:text-secondary transition-colors duration-300 flex-1 pr-4">
+                  <h3 className="heading-3 text-slate-900 group-hover:text-secondary transition-colors">
                     {service.name}
                   </h3>
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex-shrink-0">
-                    <svg className="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
+                  <motion.span
+                    initial={{ opacity: 0, x: -4 }}
+                    whileHover={{ opacity: 1, x: 0 }}
+                    className="text-secondary"
+                  >
+                    →
+                  </motion.span>
                 </div>
-                
-                {/* Description */}
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+
+                <p className="text-slate-600 leading-relaxed text-sm">
                   {service.description}
                 </p>
-                
-                {/* CTA Link */}
-                <div className="pt-2">
-                  <Link 
-                    href="/services" 
-                    className="inline-flex items-center text-secondary-600 dark:text-secondary-400 font-medium text-sm hover:text-secondary-700 dark:hover:text-secondary-300 transition-colors group/link"
-                  >
-                    Learn more
-                    <svg className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Animated bottom line */}
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-secondary-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-          ))}
-        </div>
 
-        {/* Bottom CTA Section */}
-        <div className="relative rounded-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:via-secondary-500/20 dark:to-accent-500/20 border border-primary-500/20 dark:border-primary-500/30 p-12 text-center backdrop-blur-sm">
-          <h3 className="heading-3 text-slate-900 dark:text-white mb-4">Ready to Transform Your Energy?</h3>
-          <p className="body-text text-brand-light max-w-2xl mx-auto mb-8">
-            Each session is personalized to your unique needs and energetic signature. 
-            Let&apos;s work together to unlock your infinite potential.
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 text-secondary font-medium text-sm group/link mt-auto"
+                >
+                  Learn more
+                  <span className="transition-transform group-hover/link:translate-x-1">→</span>
+                </Link>
+              </div>
+
+              {/* hover glow */}
+              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-secondary-400/0 group-hover:ring-secondary-400/30 transition" />
+            </motion.article>
+          ))}
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative rounded-3xl bg-gradient-to-r from-primary-100 via-secondary-100 to-accent-100 border border-primary-300/30 p-12 text-center"
+        >
+          <h3 className="heading-3 mb-4 text-slate-900">
+            Ready to Begin Your Healing Journey?
+          </h3>
+          <p className="text-brand-light max-w-2xl mx-auto mb-8">
+            Sessions are intuitively guided and shaped around your needs.
+            If you feel called, let’s explore how we can work together.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/services" className="btn btn-primary">
-              Explore All Services
+              View All Services
             </Link>
             <Link href="/contact" className="btn btn-outline">
-              Book a Consultation
+              Book a Session
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   )
 }

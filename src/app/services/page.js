@@ -43,17 +43,35 @@ export default function Services() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="section-padding gradient-bg">
-        <div className="container">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="heading-1 mb-6">Healing That Transforms</h1>
-            <p className="body-large">
-              Experience profound healing through integration of various modalities where each session is as unique as you are. 
-              Healing sessions are customised as per individual requirements.
-            </p>
-          </div>
-        </div>
-      </section>
+<section
+  className="relative overflow-hidden bg-surface"
+  style={{
+    backgroundImage:
+      "linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,255,255,0.75)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/75 to-white/65" />
+
+  <div className="relative container py-24 sm:py-28 text-center">
+    <p className="uppercase tracking-[0.2em] text-sm font-semibold text-gray-900">
+      Holistic Healing
+    </p>
+
+    <h1 className="heading-1 mt-4 mb-6 text-gray-900">
+      Healing That Transforms
+    </h1>
+
+    <p className="max-w-3xl mx-auto text-lg text-gray-700">
+      Experience profound healing through an intuitive integration of multiple
+      modalities. Each session is thoughtfully customised to your unique needs,
+      supporting deep shifts in energy, awareness, and well-being—because no two
+      healing journeys are ever the same.
+    </p>
+  </div>
+</section>
+
 
       {/* Services Grid */}
       <section className="section-padding">
